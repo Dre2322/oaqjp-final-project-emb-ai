@@ -1,3 +1,7 @@
+"""
+Flask server for the Emotion Detection application.
+"""
+
 from flask import Flask, render_template, request
 from EmotionDetection import emotion_detector
 
