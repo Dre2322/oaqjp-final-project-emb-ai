@@ -20,14 +20,17 @@ def sent_detector():
 
     response = emotion_detector(text_to_analyze)
 
+    if response["dominant_emotion"] is None:
+        return "Invalid text! Please try again!"
+
     return (
-        f"For the given statement, the system response is"
-        f"'anger': {response['anger']},"
-        f"'disgust': {response['disgust']},"
-        f"'fear': {response['fear']},"
-        f"'joy': {response['joy']}, and"
-        f"'sadness': {response['sadness']}."
-        f"The dominant emotion is {response['dominant_emotion']}"
+        f"For the given statement, the system response is:<br><br>"
+    f"&nbsp;&nbsp;Anger: {response['anger']}<br>"
+    f"&nbsp;&nbsp;Disgust: {response['disgust']}<br>"
+    f"&nbsp;&nbsp;Fear: {response['fear']}<br>"
+    f"&nbsp;&nbsp;Joy: {response['joy']}<br>"
+    f"&nbsp;&nbsp;Sadness: {response['sadness']}<br><br>"
+    f"<b>Dominant emotion: {response['dominant_emotion']}</b>"
     )
 
 if __name__ == "__main__":
